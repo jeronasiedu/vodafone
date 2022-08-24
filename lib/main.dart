@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vodafone/root_app.dart';
 
 void main() {
@@ -14,12 +15,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Vodafone Clone',
       theme: ThemeData(
-          // primarySwatch: Colors.indigo,
-          colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.red,
-      )
-          // useMaterial3: true,
-          ),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.red,
+        ),
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context).textTheme,
+        ),
+        // useMaterial3: true,
+      ),
       home: const RootApp(),
     );
   }
