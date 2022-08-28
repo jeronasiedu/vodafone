@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:vodafone/root_app.dart';
 
 void main() {
@@ -18,10 +17,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.red,
         ),
-        textTheme: GoogleFonts.poppinsTextTheme(
-          Theme.of(context).textTheme,
-        ),
+        // textTheme: GoogleFonts.poppinsTextTheme(
+        //   Theme.of(context).textTheme,
+        // ),
         // useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+        ),
       ),
       home: const RootApp(),
     );

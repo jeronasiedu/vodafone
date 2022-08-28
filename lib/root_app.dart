@@ -1,107 +1,104 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:vodafone/widgets/bottom_navigation.dart';
 
 class RootApp extends StatefulWidget {
-  const RootApp({Key? key}) : super(key: key);
+  const RootApp({super.key});
 
   @override
   State<RootApp> createState() => _RootAppState();
 }
 
 class _RootAppState extends State<RootApp> {
+  final _controller = PageController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    height: MediaQuery.of(context).size.height * 0.4,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: const BoxDecoration(
-                      color: Colors.red,
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'assets/logo.png',
-                        ),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Column(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image.asset(
+              'assets/logo.png',
+              width: 40,
+              color: Colors.white,
+            ),
+            const Text("050 0070 730")
+          ],
+        ),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(15),
+        children: [
+          SizedBox(
+            height: 140,
+            child: PageView(
+              controller: _controller,
+              children: [
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: // text
+                        Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           children: [
-                            Image.asset(
-                              'assets/logo.png',
+                            SvgPicture.asset(
+                              'assets/data.svg',
+                              color: Colors.red,
                               width: 40,
-                              color: Colors.white,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Text(
-                                "Vodafone",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6!
-                                    .copyWith(color: Colors.white),
-                              ),
+                            const SizedBox(
+                              width: 8,
                             ),
-                            const Spacer(),
-                            const CircleAvatar(
-                              radius: 28,
-                              backgroundImage: NetworkImage(
-                                'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80',
-                              ),
-                            )
+                            Text(
+                              "Data",
+                              style: Theme.of(context).textTheme.headline6,
+                            ),
                           ],
                         ),
-                        const SizedBox(height: 20),
-                        Container(
-                          padding: const EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: Colors.white.withOpacity(0.1),
-                          ),
-                          child: Column(
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            style:
+                                Theme.of(context).textTheme.headline6!.copyWith(
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                            text: "18.0",
                             children: [
-                              // hi stephen and amount remaing
-                              Row(
-                                children: [
-                                  Text(
-                                    "Hi, Stephen,\nYour Balance is",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline6!
-                                        .copyWith(
-                                          color: Colors.white,
-                                        ),
-                                  ),
-                                ],
-                              )
+                              TextSpan(
+                                text: " MB left",
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
                             ],
                           ),
                         )
                       ],
                     ),
-                  )
-                ],
-              )
-            ],
+                  ),
+                ),
+                const Card(
+                  child: Text("Hi Me"),
+                ),
+                const Card(
+                  child: Text("Hi You"),
+                ),
+              ],
+            ),
           ),
-        ),
+          SmoothPageIndicator(controller: _controller, count: 3),
+        ],
       ),
+      bottomNavigationBar: const BottomNavigation(),
       floatingActionButton: FloatingActionButton(
-        // elevation: 2,
         onPressed: () {},
         child: Image.asset(
           'assets/tobi.png',
-          width: 35,
+          width: 40,
         ),
       ),
     );
