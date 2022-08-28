@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:vodafone/data/card_info.dart';
 import 'package:vodafone/widgets/bottom_navigation.dart';
+import 'package:vodafone/widgets/my_card.dart';
 
 class RootApp extends StatefulWidget {
   const RootApp({super.key});
@@ -12,6 +13,7 @@ class RootApp extends StatefulWidget {
 
 class _RootAppState extends State<RootApp> {
   final _controller = PageController();
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,68 +31,51 @@ class _RootAppState extends State<RootApp> {
         ),
       ),
       body: ListView(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(12),
         children: [
           SizedBox(
-            height: 140,
-            child: PageView(
+            height: 165,
+            child: PageView.builder(
+              physics: const BouncingScrollPhysics(),
               controller: _controller,
-              children: [
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: // text
-                        Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/data.svg',
-                              color: Colors.red,
-                              width: 40,
-                            ),
-                            const SizedBox(
-                              width: 8,
-                            ),
-                            Text(
-                              "Data",
-                              style: Theme.of(context).textTheme.headline6,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            style:
-                                Theme.of(context).textTheme.headline6!.copyWith(
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                            text: "18.0",
-                            children: [
-                              TextSpan(
-                                text: " MB left",
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                const Card(
-                  child: Text("Hi Me"),
-                ),
-                const Card(
-                  child: Text("Hi You"),
-                ),
-              ],
+              onPageChanged: (value) {
+                setState(() {
+                  currentIndex = value;
+                });
+              },
+              itemCount: cardInfo.length,
+              itemBuilder: (context, index) {
+                return MyCard(
+                  amountLeft: cardInfo[index]['amountLeft'],
+                  icon: cardInfo[index]['icon'],
+                  title: cardInfo[index]['title'],
+                  tagLine: cardInfo[index]['tagLine'],
+                  unit: cardInfo[index]['unit'],
+                );
+              },
             ),
           ),
-          SmoothPageIndicator(controller: _controller, count: 3),
+          const SizedBox(
+            height: 5,
+          ),
+          Center(
+            child: SmoothPageIndicator(
+              controller: _controller,
+              count: cardInfo.length,
+              onDotClicked: (index) {
+                _controller.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.fastOutSlowIn,
+                );
+              },
+              effect: const WormEffect(
+                type: WormType.thin,
+                activeDotColor: Colors.red,
+                paintStyle: PaintingStyle.stroke,
+              ),
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: const BottomNavigation(),
