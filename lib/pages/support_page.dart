@@ -19,6 +19,7 @@ class SupportPage extends StatelessWidget {
           crossAxisCount: 2,
           mainAxisSpacing: 8,
           crossAxisSpacing: 6,
+          childAspectRatio: 1 / 0.8,
         ),
         itemBuilder: (context, index) {
           return Card(
@@ -29,11 +30,11 @@ class SupportPage extends StatelessWidget {
                 children: [
                   SvgPicture.asset(
                     supportPageData[index]['image'],
-                    width: 40,
+                    width: 35,
                     color: Colors.red,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 12),
+                    padding: const EdgeInsets.only(top: 5),
                     child: Text(
                       supportPageData[index]['title'],
                       textAlign: TextAlign.center,

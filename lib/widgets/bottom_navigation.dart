@@ -4,6 +4,7 @@ import 'package:vodafone/data/nav_items.dart';
 import 'package:vodafone/pages/bundles_page.dart';
 import 'package:vodafone/pages/cash_page.dart';
 import 'package:vodafone/pages/support_page.dart';
+import 'package:vodafone/widgets/bottom_sheet.dart';
 
 class BottomNavigation extends StatelessWidget {
   const BottomNavigation({
@@ -11,12 +12,7 @@ class BottomNavigation extends StatelessWidget {
   }) : super(key: key);
   void decideAction(int index, BuildContext context) {
     if (index == 0) {
-      showModalBottomSheet(
-        context: context,
-        builder: (context) {
-          return Container();
-        },
-      );
+      bottomSheet(context);
     } else if (index == 1) {
       Navigator.of(context).push(
         MaterialPageRoute(

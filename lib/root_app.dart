@@ -76,6 +76,15 @@ class _RootAppState extends State<RootApp> {
               ),
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            "What do you want to do?",
+            style: Theme.of(context).textTheme.headline6!.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+          )
         ],
       ),
       bottomNavigationBar: const BottomNavigation(),
