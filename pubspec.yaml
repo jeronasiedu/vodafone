@@ -38,8 +38,12 @@ dependencies:
   flutter_native_splash: ^2.2.8
 
 flutter_native_splash:
-  image: assets/haha.png
+  image: assets/vodafone_logo.png
   color: "#e60000"
+  android_12:
+    image: assets/vodafone_logo.png
+    color: "#e60000"
+    icon_background_color: "#ffffff"
 
 dev_dependencies:
   flutter_test:

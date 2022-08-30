@@ -28,84 +28,28 @@ Future<dynamic> bottomSheet(BuildContext context) {
             const SizedBox(
               height: 15,
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: Material(
-                    color: Colors.grey.shade200,
-                    child: InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: 220,
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        child: Column(
-                          children: [
-                            Text(
-                              "Services",
-                              style: Theme.of(context).textTheme.headline6,
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 12),
-                              child: Text(
-                                "Add & manage services",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ),
-                            const Spacer(),
-                            SvgPicture.asset(
-                              'assets/devices.svg',
-                              width: 90,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 14,
-                ),
-                Expanded(
-                  child: Material(
-                    color: Colors.grey.shade200,
-                    child: InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: 220,
-                        padding: const EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Column(
-                          children: [
-                            Text(
-                              "JERON ASIEDU TETTEH",
-                              overflow: TextOverflow.ellipsis,
-                              style: Theme.of(context).textTheme.headline6,
-                            ),
-                            const Text(
-                              "233500070730",
-                              textAlign: TextAlign.center,
-                            ),
-                            const Spacer(),
-                            SvgPicture.asset(
-                              'assets/smart_phone.svg',
-                              width: 120,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            )
+            ListTile(
+              onTap: () {},
+              title: const Text("Services"),
+              subtitle: const Text("Add & manage services"),
+              leading: SvgPicture.asset(
+                'assets/devices.svg',
+                width: 40,
+              ),
+              minLeadingWidth: 45,
+            ),
+            const Divider(),
+            ListTile(
+              onTap: () {},
+              title: const Text("Jeron Asiedu"),
+              subtitle: const Text("0500070730"),
+              leading: SvgPicture.asset(
+                'assets/smart_phone.svg',
+                width: 45,
+              ),
+              minLeadingWidth: 45,
+            ),
+            const Divider(),
           ],
         ),
       );
