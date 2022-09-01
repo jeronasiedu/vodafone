@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vodafone/data/card_info.dart';
 import 'package:vodafone/widgets/bottom_navigation.dart';
 import 'package:vodafone/widgets/my_card.dart';
+import 'package:vodafone/widgets/user_activity.dart';
 
 class RootApp extends StatefulWidget {
   const RootApp({super.key});
@@ -26,7 +29,12 @@ class _RootAppState extends State<RootApp> {
               width: 40,
               color: Colors.white,
             ),
-            const Text("050 0070 730")
+            const Text(
+              "Hi, Jeron Asiedu",
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
           ],
         ),
       ),
@@ -79,11 +87,44 @@ class _RootAppState extends State<RootApp> {
           const SizedBox(
             height: 10,
           ),
+          const SizedBox(
+            width: double.maxFinite,
+            height: 140,
+            child: Card(
+              elevation: 0.4,
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
           Text(
             "What do you want to do?",
             style: Theme.of(context).textTheme.headline6!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 14),
+            child: Row(
+              children: const [
+                UserActivity(
+                  icon: Ionicons.wallet_outline,
+                  desc:
+                      "Make fixed broadband payments with different providers",
+                  title: "Pay bills",
+                  buttonText: "Pay bills",
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                UserActivity(
+                  icon: FeatherIcons.barChart2,
+                  desc: "Top Up for yourself and others, pay with MOMO",
+                  title: "Top Up",
+                  buttonText: "Top Up",
+                ),
+              ],
+            ),
           )
         ],
       ),

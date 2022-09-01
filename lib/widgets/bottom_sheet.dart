@@ -41,7 +41,7 @@ Future<dynamic> bottomSheet(BuildContext context) {
             const Divider(),
             ListTile(
               onTap: () {},
-              title: const Text("Jeron Asiedu"),
+              title: const Text("Tetteh Jeron Asiedu"),
               subtitle: const Text("0500070730"),
               leading: SvgPicture.asset(
                 'assets/smart_phone.svg',
