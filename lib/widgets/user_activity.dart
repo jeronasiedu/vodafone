@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vodafone/theme/app.dart';
 
 class UserActivity extends StatelessWidget {
   const UserActivity({
@@ -26,15 +27,7 @@ class UserActivity extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(4),
           boxShadow: const [
-            BoxShadow(
-              color: Color.fromRGBO(149, 157, 165, 0.1),
-              blurRadius: 14,
-              spreadRadius: 0,
-              offset: Offset(
-                0,
-                8,
-              ),
-            ),
+            Shadow.sm,
           ],
         ),
         child: Column(
