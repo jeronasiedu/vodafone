@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vodafone/data/manage_info.dart';
 import 'package:vodafone/widgets/activities.dart';
 import 'package:vodafone/widgets/bottom_navigation.dart';
 import 'package:vodafone/widgets/manage.dart';
@@ -60,12 +61,15 @@ class _RootAppState extends State<RootApp> {
             shrinkWrap: true,
             primary: false,
             itemBuilder: (context, index) {
-              return const Manage(text: "My Subscriptions");
+              return Manage(
+                text: manageItems[index].text,
+                icon: manageItems[index].icon,
+              );
             },
             separatorBuilder: (context, index) => const Divider(
               height: 0,
             ),
-            itemCount: 3,
+            itemCount: manageItems.length,
           )
         ],
       ),
