@@ -61,15 +61,15 @@ class _UserBalanceState extends State<UserBalance> {
               )
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: Text(
-              "0500070730",
-              style: Theme.of(context).textTheme.headline6!.copyWith(
-                    letterSpacing: 1,
-                  ),
-            ),
-          )
+          // Padding(
+          //   padding: const EdgeInsets.only(top: 8),
+          //   child: Text(
+          //     "0500070730",
+          //     style: Theme.of(context).textTheme.headline6!.copyWith(
+          //           letterSpacing: 1,
+          //         ),
+          //   ),
+          // )
         ],
       ),
     );

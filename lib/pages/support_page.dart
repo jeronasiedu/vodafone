@@ -39,7 +39,7 @@ class SupportPage extends StatelessWidget {
                       supportPageData[index]['title'],
                       textAlign: TextAlign.center,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

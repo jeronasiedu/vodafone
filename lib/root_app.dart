@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:ionicons/ionicons.dart';
+import 'package:vodafone/widgets/activities.dart';
 import 'package:vodafone/widgets/bottom_navigation.dart';
+import 'package:vodafone/widgets/manage.dart';
 import 'package:vodafone/widgets/swiper_cards.dart';
-import 'package:vodafone/widgets/user_activity.dart';
 import 'package:vodafone/widgets/user_balance.dart';
 
 class RootApp extends StatefulWidget {
@@ -27,7 +26,7 @@ class _RootAppState extends State<RootApp> {
               color: Colors.white,
             ),
             const Text(
-              "Hi, Jeron Asiedu",
+              "0500070730",
               style: TextStyle(
                 fontSize: 18,
               ),
@@ -49,28 +48,24 @@ class _RootAppState extends State<RootApp> {
                   fontWeight: FontWeight.bold,
                 ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 14),
-            child: Row(
-              children: const [
-                UserActivity(
-                  icon: Ionicons.wallet_outline,
-                  desc:
-                      "Make fixed broadband payments with different providers",
-                  title: "Pay bills",
-                  buttonText: "Pay bills",
+          const Activies(),
+          Text(
+            "Manage",
+            style: Theme.of(context).textTheme.headline6!.copyWith(
+                  fontWeight: FontWeight.bold,
                 ),
-                SizedBox(
-                  width: 10,
-                ),
-                UserActivity(
-                  icon: FeatherIcons.barChart2,
-                  desc: "Top Up for yourself and others, pay with MOMO",
-                  title: "Top Up",
-                  buttonText: "Top Up",
-                ),
-              ],
+          ),
+          ListView.separated(
+            padding: const EdgeInsets.only(top: 8),
+            shrinkWrap: true,
+            primary: false,
+            itemBuilder: (context, index) {
+              return const Manage(text: "My Subscriptions");
+            },
+            separatorBuilder: (context, index) => const Divider(
+              height: 0,
             ),
+            itemCount: 3,
           )
         ],
       ),
