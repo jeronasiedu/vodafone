@@ -30,10 +30,18 @@ flutter_native_splash:
     image: assets/vodafone_logo.png
     color: "#e60000"
     icon_background_color: "#ffffff"
+    image_dark: assets/logo.png
+    color_dark: "#282c34"
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.10.0
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo.png"
+  background_color: "#ffffff"
 
   flutter_lints: ^2.0.0
 

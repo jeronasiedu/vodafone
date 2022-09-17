@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:vodafone/data/nav_items.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:vodafone/pages/bundles_page.dart';
 import 'package:vodafone/pages/cash_page.dart';
 import 'package:vodafone/pages/support_page.dart';
@@ -36,42 +35,19 @@ class BottomNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            offset: const Offset(0, 8),
-            blurRadius: 12,
-          ),
-        ],
+    return BottomNavigationBar(items: [
+      BottomNavigationBarItem(
+        icon: Icon(FeatherIcons.home),
+        label: "Home",
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: List.generate(
-          navigationItems.length,
-          ((index) {
-            return InkWell(
-              onTap: () {
-                decideAction(index, context);
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SvgPicture.asset(
-                    navigationItems[index]['icon'],
-                    width: 24,
-                    color: Colors.grey.shade700,
-                  ),
-                  Text(navigationItems[index]['title'])
-                ],
-              ),
-            );
-          }),
-        ),
+      BottomNavigationBarItem(
+        icon: Icon(FeatherIcons.home),
+        label: "Home",
       ),
-    );
+      BottomNavigationBarItem(
+        icon: Icon(FeatherIcons.home),
+        label: "Home",
+      )
+    ]);
   }
 }
