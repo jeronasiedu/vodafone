@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vodafone/pages/bundles_page.dart';
 import 'package:vodafone/pages/cash_page.dart';
 import 'package:vodafone/pages/support_page.dart';
@@ -35,19 +35,42 @@ class BottomNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(items: [
-      BottomNavigationBarItem(
-        icon: Icon(FeatherIcons.home),
-        label: "Home",
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(FeatherIcons.home),
-        label: "Home",
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(FeatherIcons.home),
-        label: "Home",
-      )
-    ]);
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      items: [
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            'assets/chip.svg',
+            width: 24,
+            color: Colors.grey[600],
+          ),
+          label: "Services",
+        ),
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            'assets/cash2.svg',
+            width: 24,
+            color: Colors.grey[600],
+          ),
+          label: "Cash",
+        ),
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            'assets/package.svg',
+            width: 24,
+            color: Colors.grey[600],
+          ),
+          label: "Bundle",
+        ),
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            'assets/support.svg',
+            width: 24,
+            color: Colors.grey[600],
+          ),
+          label: "Support",
+        ),
+      ],
+    );
   }
 }
