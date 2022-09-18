@@ -33,6 +33,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: ListView(
+        physics: BouncingScrollPhysics(),
         padding: const EdgeInsets.all(12),
         children: [
           const SwiperCards(),

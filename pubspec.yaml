@@ -24,13 +24,14 @@ dependencies:
   ionicons:
 
 flutter_native_splash:
-  image: assets/vodafone_logo.png
+  image: assets/splash.png
   color: "#e60000"
+  image_dark: assets/splash.png
+  color_dark: "#282c34"
   android_12:
-    image: assets/vodafone_logo.png
+    image: assets/splash.png
     color: "#e60000"
-    icon_background_color: "#ffffff"
-    image_dark: assets/logo.png
+    image_dark: assets/splash.png
     color_dark: "#282c34"
 
 dev_dependencies:

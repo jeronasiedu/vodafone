@@ -16,6 +16,7 @@ class BundlesPage extends StatelessWidget {
         ),
       ),
       body: GridView.builder(
+        physics: BouncingScrollPhysics(),
         itemCount: bundlePageData.length,
         padding: const EdgeInsets.all(12),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
