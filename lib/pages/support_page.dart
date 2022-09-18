@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vodafone/data/support_page_data.dart';
 import 'package:vodafone/theme/app.dart';
 
@@ -47,6 +48,7 @@ class SupportPage extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 5),
                       child: Text(
                         supportPageData[index]['title'],
+                        style: GoogleFonts.poppins(),
                         textAlign: TextAlign.center,
                       ),
                     ),

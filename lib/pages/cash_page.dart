@@ -21,11 +21,12 @@ class _CashPageState extends State<CashPage> {
     super.dispose();
   }
 
+  final borderColor = Color.fromRGBO(114, 178, 238, 1);
+  final errorColor = Color.fromRGBO(255, 234, 238, 1);
+  final fillColor = Color.fromRGBO(222, 231, 240, .57);
+  TextStyle textStyle = GoogleFonts.poppins();
   @override
   Widget build(BuildContext context) {
-    const borderColor = Color.fromRGBO(114, 178, 238, 1);
-    const errorColor = Color.fromRGBO(255, 234, 238, 1);
-    const fillColor = Color.fromRGBO(222, 231, 240, .57);
     final defaultPinTheme = PinTheme(
       width: 56,
       height: 60,
@@ -62,13 +63,11 @@ class _CashPageState extends State<CashPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.symmetric(vertical: 15),
                       child: Text(
                         "Please enter your pin",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: textStyle,
                       ),
                     ),
                     Pinput(
@@ -96,7 +95,10 @@ class _CashPageState extends State<CashPage> {
                       onPressed: () {
                         controller.clear();
                       },
-                      child: const Text("Clear Pin"),
+                      child: Text(
+                        "Clear Pin",
+                        style: textStyle,
+                      ),
                     )
                   ],
                 ),

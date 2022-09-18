@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vodafone/data/bundle_page_data.dart';
 import 'package:vodafone/theme/app.dart';
 
@@ -10,7 +11,9 @@ class BundlesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("All Offers"),
+        title: Text(
+          "All Offers",
+        ),
       ),
       body: GridView.builder(
         itemCount: bundlePageData.length,
@@ -46,6 +49,7 @@ class BundlesPage extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 8),
                       child: Text(
                         bundlePageData[index]['title'],
+                        style: GoogleFonts.poppins(),
                         textAlign: TextAlign.center,
                       ),
                     ),

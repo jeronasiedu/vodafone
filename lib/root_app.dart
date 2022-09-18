@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:vodafone/pages/bundles_page.dart';
 import 'package:vodafone/pages/cash_page.dart';
@@ -23,6 +24,7 @@ class _RootAppState extends State<RootApp> {
   int currentIndex = 0;
   Color? iconColor = Colors.grey[600];
   double iconSize = 24;
+  TextStyle labelStyle = GoogleFonts.poppins();
   @override
   Widget build(BuildContext context) {
     Color activeColor = Theme.of(context).colorScheme.primary;
@@ -32,11 +34,13 @@ class _RootAppState extends State<RootApp> {
         index: currentIndex,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        // type: BottomNavigationBarType.fixed,
+        type: BottomNavigationBarType.fixed,
         selectedItemColor: activeColor,
         unselectedItemColor: iconColor,
         showUnselectedLabels: true,
         currentIndex: currentIndex,
+        selectedLabelStyle: labelStyle,
+        unselectedLabelStyle: labelStyle,
         onTap: (index) {
           setState(() {
             currentIndex = index;

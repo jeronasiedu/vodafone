@@ -26,6 +26,7 @@ class HomePage extends StatelessWidget {
               "0500070730",
               style: TextStyle(
                 fontSize: 18,
+                letterSpacing: 2,
               ),
             ),
           ],
