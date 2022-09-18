@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:vodafone/data/manage_info.dart';
-import 'package:vodafone/widgets/activities.dart';
-import 'package:vodafone/widgets/bottom_navigation.dart';
-import 'package:vodafone/widgets/manage.dart';
-import 'package:vodafone/widgets/swiper_cards.dart';
-import 'package:vodafone/widgets/user_balance.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ionicons/ionicons.dart';
+import 'package:vodafone/pages/bundles_page.dart';
+import 'package:vodafone/pages/cash_page.dart';
+import 'package:vodafone/pages/home_page.dart';
+import 'package:vodafone/pages/support_page.dart';
 
 class RootApp extends StatefulWidget {
   const RootApp({super.key});
@@ -14,72 +14,80 @@ class RootApp extends StatefulWidget {
 }
 
 class _RootAppState extends State<RootApp> {
+  List<Widget> _pages = [
+    HomePage(),
+    CashPage(),
+    BundlesPage(),
+    SupportPage(),
+  ];
+  int currentIndex = 0;
+  Color? iconColor = Colors.grey[600];
+  double iconSize = 24;
   @override
   Widget build(BuildContext context) {
+    Color activeColor = Theme.of(context).colorScheme.primary;
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset(
-              'assets/logo.png',
-              width: 40,
-              color: Colors.white,
-            ),
-            const Text(
-              "0500070730",
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-          ],
-        ),
+      body: IndexedStack(
+        children: _pages,
+        index: currentIndex,
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(12),
-        children: [
-          const SwiperCards(),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 14),
-            child: UserBalance(),
+      bottomNavigationBar: BottomNavigationBar(
+        // type: BottomNavigationBarType.fixed,
+        selectedItemColor: activeColor,
+        unselectedItemColor: iconColor,
+        showUnselectedLabels: true,
+        currentIndex: currentIndex,
+        onTap: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Ionicons.home_outline),
+            activeIcon: Icon(Ionicons.home),
+            label: "Home",
           ),
-          Text(
-            "What do you want to do?",
-            style: Theme.of(context).textTheme.headline6!.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
-          const Activies(),
-          Text(
-            "Manage",
-            style: Theme.of(context).textTheme.headline6!.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
-          ListView.separated(
-            padding: const EdgeInsets.only(top: 8),
-            shrinkWrap: true,
-            primary: false,
-            itemBuilder: (context, index) {
-              return Manage(
-                text: manageItems[index].text,
-                icon: manageItems[index].icon,
-              );
-            },
-            separatorBuilder: (context, index) => const Divider(
-              height: 0,
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/cash2.svg',
+              width: iconSize,
+              color: iconColor,
             ),
-            itemCount: manageItems.length,
-          )
+            activeIcon: SvgPicture.asset(
+              'assets/cash2.svg',
+              width: iconSize,
+              color: activeColor,
+            ),
+            label: "Cash",
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/package.svg',
+              width: iconSize,
+              color: iconColor,
+            ),
+            activeIcon: SvgPicture.asset(
+              'assets/package.svg',
+              width: iconSize,
+              color: activeColor,
+            ),
+            label: "Bundle",
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/support.svg',
+              width: iconSize,
+              color: iconColor,
+            ),
+            activeIcon: SvgPicture.asset(
+              'assets/support.svg',
+              width: iconSize,
+              color: activeColor,
+            ),
+            label: "Support",
+          ),
         ],
-      ),
-      bottomNavigationBar: const BottomNavigation(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Image.asset(
-          'assets/tobi.png',
-          width: 40,
-        ),
       ),
     );
   }
