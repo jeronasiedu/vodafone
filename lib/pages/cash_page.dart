@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
+import 'package:vodafone/theme/app.dart';
 
 class CashPage extends StatefulWidget {
   const CashPage({Key? key}) : super(key: key);
@@ -50,9 +51,11 @@ class _CashPageState extends State<CashPage> {
           ),
           // padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(4),
-          ),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(4),
+              boxShadow: [
+                Shadow.sm,
+              ]),
           child: Stack(
             children: [
               Center(

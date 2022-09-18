@@ -45,7 +45,6 @@ class _RootAppState extends State<RootApp> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Ionicons.home_outline),
-            activeIcon: Icon(Ionicons.home),
             label: "Home",
           ),
           BottomNavigationBarItem(
