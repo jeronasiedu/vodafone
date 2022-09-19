@@ -21,13 +21,13 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.quicksandTextTheme(
           Theme.of(context).textTheme,
         ),
-        // useMaterial3: true,
         appBarTheme: const AppBarTheme(
           elevation: 0,
           backgroundColor: Colors.red,
           centerTitle: true,
         ),
       ),
+      darkTheme: ThemeData.dark(),
       home: const RootApp(),
     );
   }

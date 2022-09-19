@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 class Shadow {
   static const sm = BoxShadow(
@@ -10,4 +10,9 @@ class Shadow {
       8,
     ),
   );
+}
+
+class Themes {
+  static final light = ThemeData.light().copyWith();
+  static final dark = ThemeData.dark().copyWith();
 }

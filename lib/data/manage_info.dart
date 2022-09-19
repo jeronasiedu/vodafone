@@ -5,8 +5,9 @@ import 'package:ionicons/ionicons.dart';
 class ManageItem {
   final String text;
   final IconData icon;
+  final VoidCallback? callback;
 
-  ManageItem({required this.text, required this.icon});
+  ManageItem({required this.text, required this.icon, this.callback});
 }
 
 List manageItems = [
