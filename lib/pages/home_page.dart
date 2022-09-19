@@ -62,6 +62,7 @@ class HomePage extends StatelessWidget {
               return Manage(
                 text: manageItems[index].text,
                 icon: manageItems[index].icon,
+                screen: manageItems[index].screen,
               );
             },
             separatorBuilder: (context, index) => const Divider(
