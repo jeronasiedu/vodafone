@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData.dark().copyWith(),
       home: const RootApp(),
     );
   }
