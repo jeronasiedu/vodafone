@@ -28,6 +28,7 @@ class BundlesPage extends StatelessWidget {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {},
+            borderRadius: BorderRadius.circular(5),
             child: Ink(
               decoration: BoxDecoration(
                 color: Colors.white,
